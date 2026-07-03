@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:housie_tambola/screens/delete_account_screen.dart';
-import 'package:housie_tambola/screens/home_page.dart';
-import 'package:housie_tambola/screens/terms_privacy/privacy_policy_screen.dart';
-import 'package:housie_tambola/screens/terms_privacy/terms_screen.dart';
+import 'package:housie_tambola/screens/delete/delete_account_screen.dart';
+import 'package:housie_tambola/screens/homepage/home_page.dart';
+import 'package:housie_tambola/screens/privacy/privacy_policy_screen.dart';
+import 'package:housie_tambola/screens/terms/terms_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:housie_tambola/widgets/background/ball_model.dart';
+import 'package:housie_tambola/models/ball_model.dart';
 import 'package:housie_tambola/widgets/background/tambola_ball.dart';
 
 class FloatingBallLayer extends StatefulWidget {
@@ -28,7 +28,7 @@ class _FloatingBallLayerState extends State<FloatingBallLayer>
 
     final random = Random();
 
-    balls = List.generate(18, (_) => BallModel.random(random));
+    balls = List.generate(30, (_) => BallModel.random(random));
 
     // final width = MediaQuery.sizeOf(context).width;
 

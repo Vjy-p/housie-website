@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:housie_tambola/utils/responsive.dart';
+import 'package:housie_tambola/utils/theme/app_colors.dart';
 
 class GlassContainer extends StatelessWidget {
   const GlassContainer({
@@ -14,6 +16,7 @@ class GlassContainer extends StatelessWidget {
     this.blur = 18,
     this.opacity = .08,
     this.borderOpacity = .15,
+    this.bgcolor = AppColors.white,
   });
 
   final Widget child;
@@ -21,6 +24,7 @@ class GlassContainer extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final double? width;
   final double? height;
+  final Color bgcolor;
   final double borderRadius;
   final double blur;
   final double opacity;
@@ -28,6 +32,8 @@ class GlassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
+
     return Container(
       margin: margin,
       width: width,
@@ -37,23 +43,23 @@ class GlassContainer extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
           child: Container(
-            padding: padding ?? const EdgeInsets.all(20),
+            padding: padding ?? EdgeInsets.all(isMobile ? 10 : 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(borderRadius),
               border: Border.all(
-                color: Colors.white.withOpacity(borderOpacity),
+                color: bgcolor.withValues(alpha: borderOpacity),
               ),
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white.withOpacity(opacity),
-                  Colors.white.withOpacity(opacity / 2),
+                  bgcolor.withValues(alpha: opacity),
+                  bgcolor.withValues(alpha: opacity / 2),
                 ],
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(.15),
+                  color: AppColors.shadow.withValues(alpha: .15),
                   blurRadius: 30,
                   spreadRadius: 2,
                   offset: const Offset(0, 10),
