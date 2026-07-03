@@ -57,9 +57,8 @@ class FeaturesSection extends StatelessWidget {
         horizontal: isMobile ? 16 : 40,
         vertical: isMobile ? 0 : 20,
       ),
-      alignment: Alignment.topLeft,
+      alignment: isMobile ? Alignment.topLeft : Alignment.topCenter,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Everything You Need",

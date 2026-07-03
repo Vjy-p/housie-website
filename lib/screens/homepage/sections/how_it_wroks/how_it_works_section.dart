@@ -18,11 +18,10 @@ class HowItWorksSection extends StatelessWidget {
         horizontal: isMobile ? 16 : 40,
         vertical: isMobile ? 10 : 20,
       ),
-      alignment: Alignment.topLeft,
+      alignment: isMobile ? Alignment.topLeft : Alignment.topCenter,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 1200),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "How It Works",

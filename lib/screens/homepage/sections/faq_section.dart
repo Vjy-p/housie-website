@@ -18,7 +18,7 @@ class FaqSection extends StatelessWidget {
             horizontal: isMobile ? 16 : 40,
             vertical: isMobile ? 10 : 20,
           ),
-          alignment: Alignment.topLeft,
+          alignment: isMobile ? Alignment.topLeft : Alignment.topCenter,
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child:
@@ -123,7 +123,7 @@ class FaqSection extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            childrenPadding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            childrenPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             children: [
               Text(
                 answer,

@@ -27,8 +27,8 @@ class ScreenshotsSection extends StatelessWidget {
         horizontal: isMobile ? 16 : 40,
         vertical: isMobile ? 0 : 20,
       ),
+      alignment: isMobile ? Alignment.topLeft : Alignment.topCenter,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "App Screenshots",
