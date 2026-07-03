@@ -48,6 +48,8 @@ class FeaturesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
+    final isTab = Responsive.isTablet(context);
+    // double width = MediaQuery.of(context).size.width;
 
     return Container(
       key: Constants.features,
@@ -55,6 +57,7 @@ class FeaturesSection extends StatelessWidget {
         horizontal: isMobile ? 16 : 40,
         vertical: isMobile ? 0 : 20,
       ),
+      alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -67,25 +70,40 @@ class FeaturesSection extends StatelessWidget {
             ),
           ),
           SizedBox(height: isMobile ? 10 : 30),
-          GridView.builder(
-            shrinkWrap: true,
-            itemCount: features.length,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: isMobile ? 10 : 24,
-              mainAxisSpacing: isMobile ? 10 : 24,
-              childAspectRatio: 1.2,
-            ),
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) {
-              return FeatureCard(
-                icon: features[index].icon,
-                title: features[index].title,
-                subtitle: features[index].subtitle,
-              );
-            },
-          ),
+          isMobile
+              ? GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: features.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: isMobile ? 10 : 24,
+                    mainAxisSpacing: isMobile ? 10 : 24,
+                    // childAspectRatio: 0.8,
+                  ),
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    return FeatureCard(
+                      icon: features[index].icon,
+                      title: features[index].title,
+                      subtitle: features[index].subtitle,
+                    );
+                  },
+                )
+              : Wrap(
+                  alignment: WrapAlignment.start,
+                  runAlignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  spacing: isMobile ? 10 : 24,
+                  runSpacing: isMobile ? 10 : 24,
+                  children: List.generate(features.length, (index) {
+                    return FeatureCard(
+                      icon: features[index].icon,
+                      title: features[index].title,
+                      subtitle: features[index].subtitle,
+                    );
+                  }),
+                ),
         ],
       ),
     );

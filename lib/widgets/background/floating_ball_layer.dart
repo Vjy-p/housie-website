@@ -28,7 +28,7 @@ class _FloatingBallLayerState extends State<FloatingBallLayer>
 
     final random = Random();
 
-    balls = List.generate(30, (_) => BallModel.random(random));
+    balls = List.generate(18, (_) => BallModel.random(random));
 
     // final width = MediaQuery.sizeOf(context).width;
 

@@ -26,6 +26,7 @@ class _FeatureCardState extends State<FeatureCard> {
   @override
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
+    double width = MediaQuery.of(context).size.width;
 
     return MouseRegion(
       onEnter: (_) {
