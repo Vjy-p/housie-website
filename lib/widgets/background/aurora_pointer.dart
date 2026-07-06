@@ -10,7 +10,7 @@ class AuroraPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final background = Paint()..color = const Color(0xff070B16);
+    final background = Paint()..color = AppColors.background;
 
     canvas.drawRect(Offset.zero & size, background);
 

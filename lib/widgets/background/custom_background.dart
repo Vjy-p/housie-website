@@ -14,10 +14,8 @@ class CustomBackground extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final mobile = width < 900;
 
-    return Scaffold(
-      appBar: appBar,
-      endDrawer: appBar != null && mobile ? SideMenu() : null,
-      body: Stack(
+    return Material(
+      child: Stack(
         children: [
           const Positioned.fill(child: AuroraBackground()),
           const Positioned.fill(
@@ -27,7 +25,12 @@ class CustomBackground extends StatelessWidget {
             left: 0,
             right: 0,
             top: 0,
-            child: Column(children: [Expanded(child: child)]),
+            child: Scaffold(
+              appBar: appBar,
+              backgroundColor: Colors.transparent,
+              endDrawer: appBar != null && mobile ? SideMenu() : null,
+              body: Column(children: [Expanded(child: child)]),
+            ),
           ),
         ],
       ),

@@ -48,14 +48,17 @@ class HomePage extends StatelessWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       automaticallyImplyActions: false,
-
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+      toolbarHeight: 76,
       title:
           Container(
                 // height: 72,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 28,
+                padding: EdgeInsets.symmetric(
+                  horizontal: mobile ? 10 : 28,
                   vertical: 10,
                 ),
+                margin: EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
                   color: AppColors.white.withValues(alpha: .06),
                   borderRadius: BorderRadius.circular(18),
@@ -63,10 +66,11 @@ class HomePage extends StatelessWidget {
                     color: AppColors.white.withValues(alpha: .10),
                   ),
                 ),
+                alignment: Alignment.center,
                 child: Row(
                   spacing: 16,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const LogoWidget(),
                     const Spacer(),
@@ -74,6 +78,23 @@ class HomePage extends StatelessWidget {
                       Builder(
                         builder: (scaffoldContext) {
                           return EndDrawerButton(
+                            style: ButtonStyle(
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                              visualDensity: VisualDensity.compact,
+                              shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    8,
+                                  ),
+                                  side: BorderSide(
+                                    color: AppColors.white.withValues(
+                                      alpha: 0.2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             onPressed: () {
                               Scaffold.of(scaffoldContext).openEndDrawer();
                               // Constants.scaffoldKey.currentState?.openEndDrawer();
