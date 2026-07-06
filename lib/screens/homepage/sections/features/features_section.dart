@@ -48,7 +48,7 @@ class FeaturesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
-    final isTab = Responsive.isTablet(context);
+    // final isTab = Responsive.isTablet(context);
     // double width = MediaQuery.of(context).size.width;
 
     return Container(
