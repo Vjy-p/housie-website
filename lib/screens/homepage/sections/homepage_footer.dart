@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:housie_tambola/screens/homepage/sections/app_bar/logo_widget.dart';
+import 'package:housie_tambola/utils/common_functions.dart';
 import 'package:housie_tambola/utils/constants.dart';
 import 'package:housie_tambola/utils/responsive.dart';
 import 'package:housie_tambola/utils/scroll_helper.dart';
@@ -34,14 +36,14 @@ class HomepageFooter extends StatelessWidget {
             runSpacing: 40,
             alignment: WrapAlignment.spaceBetween,
             children: [
-              SizedBox(
+              const SizedBox(
                 // width: 280,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const LogoWidget(),
-                    const SizedBox(height: 16),
-                    const Text(
+                    LogoWidget(),
+                    SizedBox(height: 16),
+                    Text(
                       "Play Housie with friends anytime, anywhere.",
                       style: TextStyle(color: AppColors.subtitle, height: 1.6),
                     ),
@@ -53,8 +55,8 @@ class HomepageFooter extends StatelessWidget {
                 // spacing: 6,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6, bottom: 6),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6, bottom: 6),
                     child: Text(
                       "Quick Links",
                       style: TextStyle(color: AppColors.white),
@@ -82,14 +84,23 @@ class HomepageFooter extends StatelessWidget {
                 // spacing: 6,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6, bottom: 6),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6, bottom: 10),
                     child: Text(
                       "Support",
                       style: TextStyle(color: AppColors.white),
                     ),
                   ),
-                  textButton("housieconnect@gmail.com", () {}),
+                  Padding(
+                    padding: EdgeInsets.only(left: 8, bottom: 4),
+                    child: const SelectableText(
+                      "housieconnect@gmail.com",
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   textButton("How It Works", () {
                     ScrollHelper.scrollTo(Constants.howItWorks);
                   }),
@@ -98,8 +109,6 @@ class HomepageFooter extends StatelessWidget {
                   }),
                 ],
               ),
-
-              // _links("Support", ["housieconnect@gmail.com"]),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -110,13 +119,20 @@ class HomepageFooter extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
-                  const SizedBox(height: 20),
-
-                  FilledButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.android),
-                    label: const Text("Google Play"),
+                  const SizedBox(height: 16),
+                  IconButton(
+                    style: ButtonStyle(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      visualDensity: VisualDensity.compact,
+                      padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                    ),
+                    onPressed: () {
+                      CommonFunctions().openPlayStore();
+                    },
+                    icon: SvgPicture.asset(
+                      height: 42,
+                      "assets/images/google_play_store.svg",
+                    ),
                   ),
                 ],
               ),
@@ -131,7 +147,7 @@ class HomepageFooter extends StatelessWidget {
             child: Divider(color: AppColors.white.withValues(alpha: .08)),
           ),
 
-          Text(
+          const Text(
             "© 2026 Housie Game. All Rights Reserved.",
             style: TextStyle(color: AppColors.grey),
           ),

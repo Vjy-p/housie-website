@@ -125,15 +125,15 @@ class DeleteAccountScreen extends StatelessWidget {
                   title: "Need Help?",
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         "If you cannot access the app and need assistance deleting your account, please contact us.",
                         style: TextStyle(
                           color: AppColors.subtitle,
                           fontSize: 14,
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       SelectableText(
                         "housieconnect@gmail.com",
                         style: TextStyle(
@@ -141,8 +141,8 @@ class DeleteAccountScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 16),
-                      Text(
+                      const SizedBox(height: 16),
+                      const Text(
                         "Please include your in-game display name (if known) to help us locate your account.",
                         style: TextStyle(
                           color: AppColors.subtitle,
@@ -153,7 +153,7 @@ class DeleteAccountScreen extends StatelessWidget {
                   ),
                 ),
 
-                CardWidget(
+                const CardWidget(
                   index: 7,
                   icon: Icons.schedule_outlined,
                   title: "Processing Time",

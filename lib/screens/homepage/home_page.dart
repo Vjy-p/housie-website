@@ -9,6 +9,7 @@ import 'package:housie_tambola/screens/homepage/sections/hero/hero_section.dart'
 import 'package:housie_tambola/screens/homepage/sections/homepage_footer.dart';
 import 'package:housie_tambola/screens/homepage/sections/how_it_wroks/how_it_works_section.dart';
 import 'package:housie_tambola/screens/homepage/sections/screen_shots/screen_shots_section.dart';
+import 'package:housie_tambola/utils/common_functions.dart';
 import 'package:housie_tambola/utils/constants.dart';
 import 'package:housie_tambola/utils/responsive.dart';
 import 'package:housie_tambola/utils/scroll_helper.dart';
@@ -131,7 +132,9 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: FilledButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            CommonFunctions().openPlayStore();
+                          },
                           child: Text(
                             "Download",
                             style: TextStyle(
