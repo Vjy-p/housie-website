@@ -52,6 +52,7 @@ class ScreenshotsSection extends StatelessWidget {
               itemCount: screenshots.length,
               separatorBuilder: (_, _) => const SizedBox(width: 28),
               padding: EdgeInsets.zero,
+              clipBehavior: Clip.none,
               itemBuilder: (_, index) {
                 return ScreenshotCard(
                   title: screenshots[index].$1,

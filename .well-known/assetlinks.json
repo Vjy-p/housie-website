@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.game.thambola",
+      "sha256_cert_fingerprints": [
+        "9E:07:3B:C4:CF:89:55:6C:D9:9B:63:81:3B:DD:EB:30:8B:A2:02:77:01:6E:BA:9D:2F:73:BA:E9:55:CC:7E:0B"
+      ]
+    }
+  }
+]
